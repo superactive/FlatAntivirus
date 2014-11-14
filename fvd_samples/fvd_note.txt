@@ -1,0 +1,183 @@
+#
+# FVD notes
+#
+# Copyright (C) Suyandi Wu
+#
+
+============
+1. File .cdb
+============
+
+Purpose:
+    For detecting malware using CRC32 hashing on a file.
+
+Format:
+    MWName:MWType:FileSize:Crc32
+
+
+Field:
+    MWName:      string[31]
+    MWType:      byte
+    {
+        0 = worm
+        1 = trojan
+        2 = virus
+        3 = script
+        4 = adware
+        5 = spyware
+        6 = hoax
+    }
+    FileSize:    dword
+    Crc32:       dword (hex)
+
+Note:
+    Record will be sorted by order of FileSize+Crc32.
+
+
+============
+2. File .xdb
+============
+
+Purpose:
+    For detecting malware using CRC32 hashing on a signature string in a file.
+
+Format:
+    FileType:MWName:MWType:FileOffset:SignLength:SignCRC32
+
+Field:
+    FileType:  byte
+    {
+        0 = raw
+        1 = PE
+        2 = PE64
+        3 = Script
+        4 = DOS
+        5 = ELF
+    }
+    MWName:      string[31]
+    MWType:      byte
+    {
+        0 = worm
+        1 = trojan
+        2 = virus
+        3 = script
+        4 = adware
+        5 = spyware
+        6 = hoax
+    }
+    FileOffset:     string[16] (all number in hex format)
+    {
+        N           (absolute file offset)
+        o-n         (EOF - n bytes)
+
+        # Belows only valid for PE file:
+        %+n         (entry point + n bytes)
+        $m          (start of section m to end of section m; m = zero based index with max value FF)
+        $m+n        (start of section m + n bytes)
+        $l          (start of last section to end of last section)
+        $l+n        (start of last section + n bytes)
+    }
+    SignLength:     dword
+    SignCRC32:      dword (hex)
+
+Note:
+    Record will be sorted by order of FileType+FileOffset.
+
+
+============
+3. File .sdb
+============
+
+Purpose:
+    For detecting malware by searching a signature pattern string in a file.
+
+Format:
+    FileType:MWName:MWType:FileOffset:SignHexString
+
+Field:
+    FileType:  byte
+    {
+        0 = raw
+        1 = PE
+        2 = Script
+        3 = PE64
+        4 = DOS
+        5 = ELF
+    }
+    MWName:      string[31]
+    MWType:      byte
+    {
+        0 = worm
+        1 = trojan
+        2 = script
+        3 = virus
+        4 = adware
+        5 = spyware
+        6 = joke/hoax
+    }
+    FileOffset:     string[16] (all number in hex format)
+    {
+        N           (absolute file offset)
+        o-n         (EOF - n bytes)
+        x           (any offset, commonly used for script/text-based malware)
+
+        # Belows only valid for PE file:
+        %+n         (entry point + n bytes)
+        $m          (start of section m to end of section m; m = zero based index with 1 byte size)
+        $m+n        (start of section m + n bytes)
+        $l          (start of last section to end of last section)
+        $l+n        (start of last section + n bytes)
+        $x          (any section)
+    }
+    SignHexString:  dynamic_string (maxlen = 512 bytes)
+    {
+        ??      (match any byte)
+        *       (match any number of bytes)
+        {n}     (match n bytes)
+        {-n}    (match n or less bytes)
+        {n-}    (match n or more bytes)
+    }
+
+Note:
+    Record will be sorted by order of FileType+FileOffset
+
+
+============
+4. File .wdb
+============
+
+Purpose:
+    Contains whitelist of malware.
+
+Format:
+    MWName:MWType:FileSize:Crc32
+
+
+Field:
+    MWName:      string[31]
+    MWType:      byte
+    {
+        0 = worm
+        1 = trojan
+        2 = virus
+        3 = script
+        4 = adware
+        5 = spyware
+        6 = hoax
+    }
+    FileSize:    dword
+    Crc32:       dword (hex)
+
+Note:
+    Record will be sorted by order of FileSize+Crc32.
+
+============
+5. File .hdb
+============
+DbMayorVersion:DbMinorVersion:MinimalAvMayorVersion:MinimalAvMinorVersion
+
+Field:
+DbMayorVersion : dword
+DbMinorVersion : byte
+MinimalAvMayorVersion : word
+MinimalAvMinorVersion : byte

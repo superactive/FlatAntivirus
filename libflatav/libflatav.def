@@ -1,0 +1,9 @@
+LIBRARY libflatav
+VERSION 0.1
+EXPORTS 
+	Fvd_BuildNewDb
+	Fvd_LoadDb
+	Fvd_UnloadDb
+	Fvd_ParseHeader
+	Fvd_ValidateDb
+	Sca_ScanFile

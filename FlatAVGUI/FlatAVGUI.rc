@@ -1,0 +1,372 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "\r\n"
+    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)\r\n"
+    "LANGUAGE 9, 1\r\n"
+    "#pragma code_page(1252)\r\n"
+    "#include ""res\\FlatAVGUI.rc2""  // non-Microsoft Visual C++ edited resources\r\n"
+    "#include ""afxres.rc""         // Standard components\r\n"
+    "#endif\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_MAINFRAME           ICON                    "res\\flatav_mainicon.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_ABOUTBOX DIALOGEX 0, 0, 235, 55
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "About FlatAVGUI"
+FONT 8, "MS Shell Dlg", 0, 0, 0x1
+BEGIN
+    ICON            IDR_MAINFRAME,IDC_STATIC,11,17,20,20
+    LTEXT           "FlatAVGUI Version 1.0",IDC_STATIC,40,10,119,8,SS_NOPREFIX
+    LTEXT           "Copyright (C) 2008 Suyandi Wu",IDC_STATIC,40,25,119,8
+    DEFPUSHBUTTON   "OK",IDOK,178,7,50,16,WS_GROUP
+END
+
+IDD_MAINDLG DIALOGEX 0, 0, 461, 287
+STYLE DS_SETFONT | DS_MODALFRAME | WS_MINIMIZEBOX | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_CLIENTEDGE | WS_EX_APPWINDOW
+MENU IDR_MAINMENU
+FONT 8, "Microsoft Sans Serif", 400, 0, 0x0
+BEGIN
+    DEFPUSHBUTTON   "&Scan",IDC_BTNSCAN,247,253,90,18
+    PUSHBUTTON      "E&xit",IDCANCEL,351,253,90,18
+    CONTROL         "",IDC_SHELLFOLDERTREE,
+                    "{A11BEB14-DEA0-4E1D-98AE-99B5E538DB31}",WS_TABSTOP,11,21,216,212
+    LTEXT           "Location to scan:",IDC_STATIC,11,9,67,9
+    GROUPBOX        "Scan options",IDC_STATIC,237,18,213,67
+    CONTROL         "Test &archives",IDC_CHKTESTARCHIVES,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,251,33,60,13
+    GROUPBOX        "Information",IDC_STATIC,237,91,213,142
+    GROUPBOX        "Scan",IDC_STATIC,237,238,213,42
+    LTEXT           "Current database version:",IDC_STATIC,247,109,86,11
+    LTEXT           "Signature count:",IDC_STATIC,247,126,61,10
+    LTEXT           "Static",IDC_LBLDBVER,355,109,85,11
+    LTEXT           "Static",IDC_LBLSIGCOUNT,355,126,83,11
+    CONTROL         "Scan sub&folders",IDC_CHKSCANSUBFOLDERS,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,251,50,67,13
+END
+
+IDD_SCANDLG DIALOGEX 0, 0, 466, 301
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    PUSHBUTTON      "&Delete Files",IDC_BTNDELFILES,320,271,61,16,WS_DISABLED
+    PUSHBUTTON      "Stop",IDC_BTNSTOPCLOSE,389,271,61,16
+    CONTROL         "",IDC_LSTSCANRESULT,"SysListView32",LVS_REPORT | LVS_SHOWSELALWAYS | LVS_ALIGNLEFT | WS_BORDER | WS_TABSTOP,10,105,442,155
+    GROUPBOX        "Information",IDC_STATIC,10,9,442,72
+    LTEXT           "Scanned file:",IDC_STATIC,59,44,41,11
+    LTEXT           "Number of scanned files:",IDC_STATIC,21,26,81,11
+    LTEXT           "0",IDC_LBLSCANNUM,121,26,81,11
+    LTEXT           "",IDC_LBLSCANFILE,121,44,316,11,SS_WORDELLIPSIS
+    CONTROL         "Select &All",IDC_CHKSELALL,"Button",BS_AUTOCHECKBOX | WS_DISABLED | WS_TABSTOP,11,92,47,9
+    LTEXT           "Number of infected files:",IDC_STATIC,21,61,81,11
+    LTEXT           "0",IDC_LBLINFFILES,121,61,81,11
+    PUSHBUTTON      "&Move/Rename Files",IDC_BTNMOVERENFILES,233,271,77,16,WS_DISABLED
+END
+
+IDD_DELETEDLG DIALOGEX 0, 0, 293, 146
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Delete File(s)"
+FONT 8, "Microsoft Sans Serif", 400, 0, 0x0
+BEGIN
+    DEFPUSHBUTTON   "&OK",IDC_BTNDELETE,154,122,61,16
+    PUSHBUTTON      "Cancel",IDCANCEL,224,122,61,16
+    GROUPBOX        "Options",IDC_STATIC,8,48,277,65,0,WS_EX_RIGHT
+    CONTROL         "Delete file(s) to &recycle bin",IDC_RBDELTOBIN,"Button",BS_AUTORADIOBUTTON,18,61,103,12
+    CONTROL         "Delete file(s) &permanently",IDC_RBDELPERMANENT,"Button",BS_AUTORADIOBUTTON,18,75,99,12
+    CONTROL         "Delete &locked file(s) at next system restart",IDC_CHKDELLOCKED,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,33,90,152,12
+    LTEXT           "",IDC_LBLFILENAME,16,22,257,10,SS_WORDELLIPSIS
+    GROUPBOX        "Information",IDC_STATIC,7,8,277,32,0,WS_EX_RIGHT
+END
+
+IDD_MOVERENDLG DIALOGEX 0, 0, 293, 173
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Move/Rename File(s)"
+FONT 8, "Microsoft Sans Serif", 400, 0, 0x0
+BEGIN
+    DEFPUSHBUTTON   "&OK",IDC_BTNMOVEREN,153,151,61,16
+    PUSHBUTTON      "Cancel",IDCANCEL,223,151,61,16
+    GROUPBOX        "Information",IDC_STATIC,7,8,277,32,0,WS_EX_RIGHT
+    LTEXT           "",IDC_LBLFILENAME,16,22,257,10,SS_WORDELLIPSIS
+    GROUPBOX        "Options",IDC_STATIC,8,48,277,65,0,WS_EX_RIGHT
+    CONTROL         "&Rename file(s) (adds the "".vir"" extension)",IDC_CHKRENFILE,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,15,60,152,12
+    LTEXT           "Destination folder:",IDC_STATIC,8,119,61,11
+    EDITTEXT        IDC_TXTDESTFOLDER,8,130,248,14,ES_AUTOHSCROLL
+    CONTROL         "&Move file(s) to destination folder",IDC_CHKMOVEFILE,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,15,76,127,12
+    CONTROL         "Move/rename &locked file(s) at next system restart",IDC_CHKMOVERENLOCKED,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,27,92,169,9
+    PUSHBUTTON      "...",IDC_BTNBROWSE,261,130,23,15
+END
+
+IDD_SPLASHDLG DIALOGEX 0, 0, 347, 168
+STYLE DS_SETFONT | DS_FIXEDSYS | DS_CENTER | WS_POPUP | WS_VISIBLE | WS_SYSMENU
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    PUSHBUTTON      "&Stop",IDCANCEL,290,147,50,14
+END
+
+IDD_SCANMEMDLG DIALOGEX 0, 0, 466, 301
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    PUSHBUTTON      "&Delete Files",IDC_BTNDELFILES,320,271,61,16,WS_DISABLED
+    PUSHBUTTON      "Stop",IDC_BTNSTOPCLOSE,389,271,61,16
+    CONTROL         "",IDC_LSTSCANRESULT,"SysListView32",LVS_REPORT | LVS_SHOWSELALWAYS | LVS_ALIGNLEFT | WS_BORDER | WS_TABSTOP,10,105,442,155
+    GROUPBOX        "Information",IDC_STATIC,10,9,442,72
+    LTEXT           "Scanned file:",IDC_STATIC,59,44,41,11
+    LTEXT           "Number of scanned files:",IDC_STATIC,21,26,81,11
+    LTEXT           "0",IDC_LBLSCANNUM,121,26,81,11
+    LTEXT           "",IDC_LBLSCANFILE,121,44,316,11,SS_WORDELLIPSIS
+    CONTROL         "Select &All",IDC_CHKSELALL,"Button",BS_AUTOCHECKBOX | WS_DISABLED | WS_TABSTOP,11,92,47,9
+    LTEXT           "Number of infected files:",IDC_STATIC,21,61,81,11
+    LTEXT           "0",IDC_LBLINFFILES,121,61,81,11
+    PUSHBUTTON      "&Move/Rename Files",IDC_BTNMOVERENFILES,233,271,77,16,WS_DISABLED
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 1,0,0,1
+ PRODUCTVERSION 1,0,0,1
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904e4"
+        BEGIN
+            VALUE "CompanyName", "Suyandi Wu"
+            VALUE "FileDescription", "Flat Antivirus"
+            VALUE "FileVersion", "1.0.0.1"
+            VALUE "InternalName", "FlatAVGUI.exe"
+            VALUE "LegalCopyright", " (c) 2008 Suyandi Wu.  All rights reserved."
+            VALUE "OriginalFilename", "FlatAVGUI.exe"
+            VALUE "ProductName", "FlatAV"
+            VALUE "ProductVersion", "1.0.0.1"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x409, 1252
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO 
+BEGIN
+    IDD_ABOUTBOX, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 228
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 48
+    END
+
+    IDD_MAINDLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 454
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 280
+    END
+
+    IDD_SCANDLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 459
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 294
+    END
+
+    IDD_DELETEDLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 286
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 139
+    END
+
+    IDD_MOVERENDLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 286
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 166
+    END
+
+    IDD_SPLASHDLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 340
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 161
+    END
+
+    IDD_SCANMEMDLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 459
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 294
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+IDR_MAINMENU MENU 
+BEGIN
+    POPUP "&Scan"
+    BEGIN
+        MENUITEM "&Scan selected files ...",    IDM_SCAN
+        MENUITEM "Scan &memory ...",            IDM_SCANMEMORY
+    END
+    POPUP "&Help"
+    BEGIN
+        MENUITEM "&About FlatAV",               IDM_ABOUTBOX
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+IDB_SPLASH              BITMAP                  "res\\flatav_splash.bmp"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog Info
+//
+
+IDD_MAINDLG DLGINIT
+BEGIN
+    IDC_SHELLFOLDERTREE, 0x376, 102, 0
+0x0000, 0x0000, 0x0800, 0x0000, 0x217d, 0x0000, 0x23a8, 0x0000, 0x0002, 
+0x0001, 0x000b, 0xffff, 0x0003, 0x0001, 0x0000, 0x000b, 0x0000, 0x000b, 
+0xffff, 0x0013, 0x0000, 0x0000, 0x000b, 0x0000, 0x000b, 0xffff, 0x000b, 
+0x0000, 0x000b, 0xffff, 0x000b, 0xffff, 0x000b, 0xffff, 0x000b, 0xffff, 
+0x000b, 0x0000, 0x000b, 0xffff, 0x000b, 0xffff, 0x0003, 0x0000, 0x0000, 
+0x000b, 0xffff, 0x000b, 0xffff, 0x000b, 0xffff, 
+    0
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE 
+BEGIN
+    IDS_ABOUTBOX            "&About FlatAV..."
+END
+
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#define _AFX_NO_SPLITTER_RESOURCES
+#define _AFX_NO_OLE_RESOURCES
+#define _AFX_NO_TRACKER_RESOURCES
+#define _AFX_NO_PROPERTY_RESOURCES
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+LANGUAGE 9, 1
+#pragma code_page(1252)
+#include "res\FlatAVGUI.rc2"  // non-Microsoft Visual C++ edited resources
+#include "afxres.rc"         // Standard components
+#endif
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+
