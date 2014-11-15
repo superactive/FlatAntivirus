@@ -6,8 +6,8 @@ void dbg_msgbox (const TCHAR* fmt, ...)
     TCHAR buffer[BUFSIZ];
 
     va_start (vargs, fmt);
-    _vsntprintf (buffer, sizeof(buffer), fmt, vargs);
-    buffer[sizeof(buffer)-1] = '\0';
+	_vsntprintf(buffer, BUFSIZ, fmt, vargs);
+	buffer[BUFSIZ - 1] = '\0';
 
     ::MessageBox (NULL, buffer, NULL, 0);
 
@@ -21,8 +21,8 @@ void dbg_writelog (const TCHAR* fn, const TCHAR* fmt, ...)
     _TCHAR buffer[BUFSIZ];
 
     va_start (vargs, fmt);
-    _vsntprintf (buffer, sizeof(buffer), fmt, vargs);
-    buffer[sizeof(buffer)-1] = '\0';
+	_vsntprintf(buffer, BUFSIZ, fmt, vargs);
+	buffer[BUFSIZ - 1] = '\0';
 
     file = _tfopen (fn, _T("a+"));
     if (file == NULL)

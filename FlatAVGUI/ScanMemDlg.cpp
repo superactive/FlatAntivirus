@@ -276,7 +276,7 @@ void CScanMemDlg::InsertLvScanResultItem (LPCTSTR szFilePath, LPARAM lParam)
 void CScanMemDlg::OnBtnStopCloseClicked()
 {
     TCHAR szText[10];
-    if (GetDlgItemText (IDC_BTNSTOPCLOSE, szText, sizeof(szText))) {
+    if (GetDlgItemText (IDC_BTNSTOPCLOSE, szText, sizeof(szText)/sizeof(TCHAR))) {
 		if (::lstrcmpi (szText, _T("Stop")) == 0) {
             m_bStopScan = TRUE;
 		}
