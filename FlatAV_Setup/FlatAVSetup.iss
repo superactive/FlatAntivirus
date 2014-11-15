@@ -26,13 +26,13 @@ Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{
 [Files]
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
 Source: "FlatAV\FlatAVGUI.exe"; DestDir: "{app}"; Flags: ignoreversion
+Source: "FlatAV\main.fvd"; DestDir: "{app}"; Flags: ignoreversion
 Source: "FlatAV\libflatav.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "FlatAV\ShellCtl.dll"; DestDir: "{app}"; Flags: ignoreversion regserver
-Source: "FlatAV\mfc80u.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "FlatAV\msvcr80.dll"; DestDir: "{app}"; Flags: ignoreversion
-;Source: "FlatAV\mfc80ud.dll"; DestDir: "{app}"; Flags: ignoreversion
-;Source: "FlatAV\msvcr80d.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "FlatAV\main.fvd"; DestDir: "{app}"; Flags: ignoreversion
+; these two files should be supplied manually depending on your build setting and visual studio version
+Source: "FlatAV\mfc90u.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "FlatAV\msvcr90.dll"; DestDir: "{app}"; Flags: ignoreversion
+
 
 [Icons]
 Name: "{group}\FlatAV"; Filename: "{app}\FlatAVGUI.exe"; WorkingDir: "{app}"
