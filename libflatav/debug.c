@@ -21,10 +21,10 @@ void dbg_printf(const _TCHAR* fmt, ...)
 	va_list vargs;
 	_TCHAR buffer[BUFSIZ];
 	int n = sizeof(_T("FlatAV Debug: ")) / sizeof(_TCHAR) - 1;
-	_tcsncpy(buffer, _T("FlatAV Debug: "), n);
+	_tcsncpy_s(buffer, BUFSIZ, _T("FlatAV Debug: "), n);
 
 	va_start(vargs, fmt);
-	_vsntprintf(buffer + n, BUFSIZ - n, fmt, vargs);
+	_vsntprintf_s(buffer + n, BUFSIZ - n, _TRUNCATE, fmt, vargs);
 	buffer[BUFSIZ - 1] = '\0';
 	_fputts(buffer, stderr);
 	va_end(vargs);
@@ -35,10 +35,10 @@ void dbg_error(const _TCHAR* fmt, ...)
 	va_list vargs;
 	TCHAR buffer[BUFSIZ];
 	int n = sizeof(_T("FlatAV Error: ")) / sizeof(_TCHAR) - 1;
-	_tcsncpy(buffer, _T("FlatAV Error: "), n);
+	_tcsncpy_s(buffer, BUFSIZ, _T("FlatAV Error: "), n);
 
 	va_start(vargs, fmt);
-	_vsntprintf(buffer + n, BUFSIZ - n, fmt, vargs);
+	_vsntprintf_s(buffer + n, BUFSIZ - n, _TRUNCATE, fmt, vargs);
 	buffer[BUFSIZ - 1] = '\0';
 	_fputts(buffer, stderr);
 	va_end(vargs);
@@ -51,7 +51,7 @@ void dbg_writelog(const TCHAR* fn, const TCHAR* fmt, ...)
 	_TCHAR buffer[BUFSIZ];
 
 	va_start(vargs, fmt);
-	_vsntprintf(buffer, BUFSIZ, fmt, vargs);
+	_vsntprintf_s(buffer, BUFSIZ, _TRUNCATE, fmt, vargs);
 	buffer[BUFSIZ - 1] = '\0';
 
 	file = _tfopen(fn, _T("a+"));
@@ -71,7 +71,7 @@ void dbg_writelogln(const TCHAR* fn, const TCHAR* fmt, ...)
 	_TCHAR buffer[BUFSIZ];
 
 	va_start(vargs, fmt);
-	_vsntprintf(buffer, BUFSIZ, fmt, vargs);
+	_vsntprintf_s(buffer, BUFSIZ, _TRUNCATE, fmt, vargs);
 	buffer[BUFSIZ - 1] = '\0';
 
 	file = _tfopen(fn, _T("a+"));
